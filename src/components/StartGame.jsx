@@ -5,6 +5,7 @@ const StartGame = ({ setHasNotStarted }) => {
   return (
     <div className="start">
       <button
+        className="start-btn"
         onClick={startGame}
         data-testid="newGameButton"
       >

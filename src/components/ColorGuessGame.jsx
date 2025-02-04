@@ -11,6 +11,7 @@ const ColorSet = ({ setHasNotStarted }) => {
   const [message, setMessage] = useState("");
   const [isRevealed, setIsRevealed] = useState(false);
   const [totalGuesses, setTotalGuesses] = useState(0);
+  const [correctGuesses, setCorrectGuesses] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   // to select color randomly
   useEffect(() => {
@@ -22,12 +23,15 @@ const ColorSet = ({ setHasNotStarted }) => {
     setSelectedColor(chosenColor);
     if (chosenColor === targetColor) {
       setMessage("correct!");
+      setCorrectGuesses((prev) => prev + 1);
     } else {
       setMessage("wrong");
+      // setCorrectGuesses(correctGuesses);
     }
     setIsRevealed(true);
     setTotalGuesses((prev) => prev + 1);
     // new random color for next
+
     setTimeout(() => {
       if (totalGuesses + 1 >= 10) {
         setGameOver(true);
@@ -43,7 +47,12 @@ const ColorSet = ({ setHasNotStarted }) => {
 
   return (
     <>
-      <h2>{message}</h2>
+      <h2
+        className="message"
+        style={{ color: message == "wrong" ? "red" : "green" }}
+      >
+        {message}
+      </h2>
       <aside className="color-palette">
         {colors.map((color, index) => (
           <button
@@ -65,11 +74,15 @@ const ColorSet = ({ setHasNotStarted }) => {
         style={{ backgroundColor: isRevealed ? targetColor : "" }}
         data-testid="colorBox"
       ></div>
+      <div className="number-display">
+        <h4 className="number">{correctGuesses} / 10</h4>
+      </div>
     </>
   );
 };
 
 const ColorGuessGame = () => {
+  useEffect(() => {});
   const [hasNotStarted, setHasNotStarted] = useState(true);
   return (
     <>
