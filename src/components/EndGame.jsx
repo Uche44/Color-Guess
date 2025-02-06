@@ -1,7 +1,15 @@
-import React from "react";
-
 const EndGame = () => {
-  return <div>EndGame</div>;
+  return (
+    <div className="restart">
+      <button
+        className="restart-btn"
+        // onClick={startGame}
+        // data-testid="newGameButton"
+      >
+        PLAY AGAIN
+      </button>
+    </div>
+  );
 };
 
 export default EndGame;

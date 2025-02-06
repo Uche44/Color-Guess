@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import StartGame from "./StartGame";
-const ColorSet = ({ setHasNotStarted }) => {
+
+const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   const colors = ["red", "green", "orange", "pink", "brown", "blue"];
 
   const getRandomColor = () =>
@@ -12,20 +13,23 @@ const ColorSet = ({ setHasNotStarted }) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [totalGuesses, setTotalGuesses] = useState(0);
   const [correctGuesses, setCorrectGuesses] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+  // const [gameOver, setGameOver] = useState(false);
   // to select color randomly
   useEffect(() => {
     setIsRevealed(false);
   }, [targetColor]);
 
   const pickColor = (e) => {
+    if (gameOver) return;
+    // setHasNotStarted((prev) => !prev);
+
     const chosenColor = e.target.value;
     setSelectedColor(chosenColor);
     if (chosenColor === targetColor) {
       setMessage("correct!");
       setCorrectGuesses((prev) => prev + 1);
     } else {
-      setMessage("wrong");
+      setMessage("wrong!");
       // setCorrectGuesses(correctGuesses);
     }
     setIsRevealed(true);
@@ -35,7 +39,7 @@ const ColorSet = ({ setHasNotStarted }) => {
     setTimeout(() => {
       if (totalGuesses + 1 >= 10) {
         setGameOver(true);
-        // setHasNotStarted((prev) => !prev);
+
         setMessage("Game over");
       } else {
         setTargetColor(getRandomColor());
@@ -44,15 +48,10 @@ const ColorSet = ({ setHasNotStarted }) => {
       }
     }, 1000);
   };
+  // to sisplay instruction once game starts
 
   return (
     <>
-      <h2
-        className="message"
-        style={{ color: message == "wrong" ? "red" : "green" }}
-      >
-        {message}
-      </h2>
       <aside className="color-palette">
         {colors.map((color, index) => (
           <button
@@ -62,9 +61,36 @@ const ColorSet = ({ setHasNotStarted }) => {
             value={color}
             onClick={pickColor}
             data-testid="colorOption"
+            disabled={gameOver}
           ></button>
         ))}
       </aside>
+      <h1
+        className="instruction"
+        data-testid="gameInstructions"
+      >
+        Guess a Color
+      </h1>
+
+      {/* <div className="count-down-text"> */}
+      {/* You have */}
+      <h4
+        className="count-down"
+        style={{ color: totalGuesses > 5 ? "red" : "#74480f" }}
+      >
+        {10 - totalGuesses}
+      </h4>
+      {/* guesses left */}
+      {/* </div> */}
+
+      <h2
+        className="message"
+        data-testid="gameStatus"
+        style={{ color: message == "wrong" ? "red" : "green" }}
+      >
+        {message}
+      </h2>
+
       <div
         style={{ backgroundColor: selectedColor }}
         className="select-board"
@@ -75,24 +101,41 @@ const ColorSet = ({ setHasNotStarted }) => {
         data-testid="colorBox"
       ></div>
       <div className="number-display">
-        <h4 className="number">{correctGuesses} / 10</h4>
+        <h4
+          className="number"
+          data-test-id="score"
+        >
+          {correctGuesses}/10
+        </h4>
       </div>
     </>
   );
 };
 
 const ColorGuessGame = () => {
-  useEffect(() => {});
   const [hasNotStarted, setHasNotStarted] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
   return (
     <>
       {hasNotStarted ? (
         <StartGame setHasNotStarted={setHasNotStarted} />
       ) : (
-        <ColorSet setHasNotStarted={setHasNotStarted} />
+        <ColorSet
+          setHasNotStarted={setHasNotStarted}
+          gameOver={gameOver}
+          setGameOver={setGameOver}
+        />
       )}
     </>
   );
+  // if (gameOver) return <EndGame />;
+  // if (hasNotStarted) return <StartGame />;
+  // return (
+  //   <ColorSet
+  //     gameOver={gameOver}
+  //     setGameOver={setGameOver}
+  //   />
+  // );
 };
 
 export default ColorGuessGame;

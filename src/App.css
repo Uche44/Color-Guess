@@ -20,6 +20,22 @@ body {
   justify-content: center;
   align-items: center;
 }
+.instruction {
+  position: absolute;
+  top: 1rem;
+  color: #5c7d33;
+  left: 20%;
+}
+
+.count-down {
+  position: absolute;
+  margin-left: 3rem;
+  font-weight: 900;
+  top: 2rem;
+  right: 4rem;
+  font-size: 2.5rem;
+}
+
 .colors {
   width: 100%;
   height: 90px;
@@ -30,8 +46,12 @@ body {
 .colors:hover {
   filter: contrast(150%);
 }
+.colors:active {
+  border: none;
+  outline: none;
+}
 .color-palette {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   background-color: #89580a;
@@ -70,8 +90,20 @@ body {
   font-size: 3rem;
   position: absolute;
   left: 60%;
+  animation: fadeInScale 0.5s ease;
 }
-.start {
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.start,
+.restart {
   width: 500px;
   height: 40vh;
   display: flex;
@@ -81,7 +113,8 @@ body {
   background-color: #74480f;
   border-radius: 2rem;
 }
-.start-btn {
+.start-btn,
+.restart-btn {
   background-color: #442604;
   width: 10rem;
   height: 3.5rem;
@@ -90,12 +123,14 @@ body {
   font-size: 1.5rem;
   font-weight: 900;
 }
-.start-btn:hover {
+.start-btn:hover,
+.restart-btn:hover {
   width: 12rem;
   height: 5rem;
   color: #2f45ff;
 }
-.start-btn:active {
+.start-btn:active,
+.restart-btn:active {
   border: none;
   transform: translate(1rem, 1rem);
 }
@@ -114,4 +149,70 @@ body {
 .number {
   font-size: 2.5rem;
   color: #000000;
+}
+/* small phones responsiveness */
+@media (max-width: 480px) {
+  body {
+    padding-block: 1rem;
+  }
+  .instruction {
+    margin-left: -1.5rem;
+    font-size: 3.5rem;
+    top: 2rem;
+    color: #5c7d33;
+  }
+  .color-palette {
+    top: 69%;
+    border-radius: 25px 25px 0px 0px;
+    height: 200px;
+    gap: 10px;
+    padding-block: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .colors {
+    width: 100%;
+    height: 100%;
+  }
+  .select-board {
+    width: 50px;
+    height: 60px;
+    left: 2rem;
+    bottom: 35%;
+    border-radius: 50%;
+  }
+  .correct-display {
+    width: 60%;
+    height: 35%;
+
+    transform: translate(-70px, 70px);
+  }
+  .message {
+    left: 8rem;
+    bottom: 35%;
+  }
+
+  .count-down {
+    font-size: 3rem;
+    top: 8rem;
+    right: 88%;
+  }
+  .number-display {
+    bottom: 35%;
+    right: 1rem;
+    width: 5rem;
+    height: 3rem;
+  }
+  .number {
+    font-size: 1.7rem;
+  }
+  .count-down {
+    font-size: 3.5rem;
+  }
+  .start {
+    width: 90vw;
+    height: 30vh;
+  }
 }

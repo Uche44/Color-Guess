@@ -16,3 +16,18 @@ const StartGame = ({ setHasNotStarted }) => {
 };
 
 export default StartGame;
+
+// end component
+export const EndGame = () => {
+  return (
+    <div className="restart">
+      <button
+        className="restart-btn"
+        // onClick={startGame}
+        data-testid="newGameButton"
+      >
+        PLAY AGAIN
+      </button>
+    </div>
+  );
+};
