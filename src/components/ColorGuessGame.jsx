@@ -21,7 +21,6 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
 
   const pickColor = (e) => {
     if (gameOver) return;
-    // setHasNotStarted((prev) => !prev);
 
     const chosenColor = e.target.value;
     setSelectedColor(chosenColor);
@@ -30,7 +29,6 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
       setCorrectGuesses((prev) => prev + 1);
     } else {
       setMessage("wrong!");
-      // setCorrectGuesses(correctGuesses);
     }
     setIsRevealed(true);
     setTotalGuesses((prev) => prev + 1);
@@ -48,7 +46,16 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
       }
     }, 1000);
   };
-  // to sisplay instruction once game starts
+  // to replay
+  const resetGame = () => {
+    setGameOver(false);
+    setTargetColor(getRandomColor());
+    setSelectedColor("");
+    setCorrectGuesses(0);
+    setTotalGuesses(0);
+    setMessage("");
+    setHasNotStarted((prev) => !prev);
+  };
 
   return (
     <>
@@ -72,16 +79,12 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
         Guess a Color
       </h1>
 
-      {/* <div className="count-down-text"> */}
-      {/* You have */}
       <h4
         className="count-down"
         style={{ color: totalGuesses > 5 ? "red" : "#74480f" }}
       >
         {10 - totalGuesses}
       </h4>
-      {/* guesses left */}
-      {/* </div> */}
 
       <h2
         className="message"
@@ -95,11 +98,13 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
         style={{ backgroundColor: selectedColor }}
         className="select-board"
       ></div>
+
       <div
         className="correct-display"
         style={{ backgroundColor: isRevealed ? targetColor : "" }}
         data-testid="colorBox"
       ></div>
+
       <div className="number-display">
         <h4
           className="number"
@@ -108,6 +113,16 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
           {correctGuesses}/10
         </h4>
       </div>
+      {gameOver && (
+        <div className="overlay">
+          <button
+            onClick={resetGame}
+            className="restart"
+          >
+            Play Again
+          </button>
+        </div>
+      )}
     </>
   );
 };
@@ -128,14 +143,6 @@ const ColorGuessGame = () => {
       )}
     </>
   );
-  // if (gameOver) return <EndGame />;
-  // if (hasNotStarted) return <StartGame />;
-  // return (
-  //   <ColorSet
-  //     gameOver={gameOver}
-  //     setGameOver={setGameOver}
-  //   />
-  // );
 };
 
 export default ColorGuessGame;

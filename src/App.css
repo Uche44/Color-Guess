@@ -4,18 +4,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* div,
-section,
-aside {
-  border: 1px solid white;
-} */
+
 body {
   font-family: "Metal Mania", serif;
   width: 100%;
   height: 100vh;
   position: relative;
   background-color: #000000;
-  /* background: linear-gradient(to right, #eae0d5, #fff441); */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,8 +19,9 @@ body {
 .instruction {
   position: absolute;
   top: 1rem;
+  font-size: 4rem;
   color: #5c7d33;
-  left: 20%;
+  left: 19%;
 }
 
 .count-down {
@@ -33,7 +30,7 @@ body {
   font-weight: 900;
   top: 2rem;
   right: 4rem;
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
 .colors {
@@ -62,6 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   justify-content: center;
   align-items: center;
   padding-inline: 1rem;
@@ -90,20 +88,9 @@ body {
   font-size: 3rem;
   position: absolute;
   left: 60%;
-  animation: fadeInScale 0.5s ease;
 }
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.start,
-.restart {
+
+.start {
   width: 500px;
   height: 40vh;
   display: flex;
@@ -113,8 +100,7 @@ body {
   background-color: #74480f;
   border-radius: 2rem;
 }
-.start-btn,
-.restart-btn {
+.start-btn {
   background-color: #442604;
   width: 10rem;
   height: 3.5rem;
@@ -123,14 +109,12 @@ body {
   font-size: 1.5rem;
   font-weight: 900;
 }
-.start-btn:hover,
-.restart-btn:hover {
+.start-btn:hover {
   width: 12rem;
   height: 5rem;
   color: #2f45ff;
 }
-.start-btn:active,
-.restart-btn:active {
+.start-btn:active {
   border: none;
   transform: translate(1rem, 1rem);
 }
@@ -149,6 +133,34 @@ body {
 .number {
   font-size: 2.5rem;
   color: #000000;
+}
+/* Overlay to cover the game */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.restart {
+  position: relative;
+  background-color: #74480f;
+  color: white;
+  padding: 15px 30px;
+  font-size: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.restart:hover {
+  filter: brightness(120%);
 }
 /* small phones responsiveness */
 @media (max-width: 480px) {
@@ -195,7 +207,7 @@ body {
   }
 
   .count-down {
-    font-size: 3rem;
+    font-size: 3.5rem;
     top: 8rem;
     right: 88%;
   }
@@ -208,11 +220,86 @@ body {
   .number {
     font-size: 1.7rem;
   }
-  .count-down {
-    font-size: 3.5rem;
-  }
+
   .start {
     width: 90vw;
     height: 30vh;
+  }
+}
+/* tablets */
+@media (min-width: 480px) and (max-width: 900px) {
+  body {
+    padding-block: 1rem;
+  }
+  .instruction {
+    margin-left: -2.2rem;
+    font-size: 7rem;
+    top: 3rem;
+    color: #5c7d33;
+  }
+  .color-palette {
+    top: 71%;
+    border-radius: 25px 25px 0px 0px;
+    height: 320px;
+    gap: 20px;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .colors {
+    width: 100%;
+    height: 100%;
+  }
+  .select-board {
+    width: 80px;
+    height: 80px;
+    left: 3rem;
+    bottom: 45%;
+    border-radius: 50%;
+  }
+  .correct-display {
+    width: 40%;
+    height: 35%;
+    transform: translate(-70px, 180px);
+  }
+  .message {
+    left: 23rem;
+    bottom: 35%;
+    font-size: 60px;
+  }
+  .count-down {
+    font-size: 6rem;
+    top: 13rem;
+    right: 7rem;
+  }
+  .number-display {
+    bottom: 32%;
+    right: 1rem;
+    width: 10rem;
+    height: 5rem;
+  }
+  .number {
+    font-size: 3rem;
+  }
+  .restart {
+    padding: 30px 60px;
+    font-size: 40px;
+  }
+  .start {
+    width: 70vw;
+    height: 30vh;
+  }
+  .start-btn {
+    width: 15rem;
+    height: 6rem;
+    font-size: 2.2rem;
+  }
+  .start-btn:hover {
+    width: 17rem;
+    height: 7rem;
+    color: #2f45ff;
   }
 }
