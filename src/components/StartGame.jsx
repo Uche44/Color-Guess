@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const StartGame = ({ setHasNotStarted }) => {
   const [showInstructions, setShowInstructions] = useState(false);
@@ -10,6 +10,21 @@ const StartGame = ({ setHasNotStarted }) => {
     "After each coice you make, another color is selected. You are allowed a maximum of ten guesses",
     "May the best man win. Goodluck!!",
   ];
+
+  const audioRef = useRef(null);
+
+  audioRef.current = new Audio("/game.mp3");
+  audioRef.current.loop = true;
+  audioRef.current.volume = 0.5;
+
+  const playAudio = async () => {
+    try {
+      await audioRef.current.play();
+    } catch (error) {
+      console.log(error);
+    }
+    setHasNotStarted(false);
+  };
 
   return (
     <div className="start">
@@ -28,18 +43,18 @@ const StartGame = ({ setHasNotStarted }) => {
             X
           </button>
 
-          {/* <div className="instructions"> */}
+         
           <ul className="instruction">
             {gameInstructions.map((i, index) => (
               <li key={index}>{i}</li>
             ))}
           </ul>
-          {/* </div> */}
+       
         </div>
       )}
       <button
         className="start-btn"
-        onClick={() => setHasNotStarted(false)}
+        onClick={playAudio}
         data-testid="newGameButton"
       >
         NEW GAME
@@ -49,4 +64,3 @@ const StartGame = ({ setHasNotStarted }) => {
 };
 
 export default StartGame;
-
