@@ -102,7 +102,7 @@ body {
 }
 .start-btn {
   background-color: #442604;
-  width: 10rem;
+  width: 13rem;
   height: 3.5rem;
   border: none;
   transition: all 2s ease-in;
@@ -110,7 +110,7 @@ body {
   font-weight: 900;
 }
 .start-btn:hover {
-  width: 12rem;
+  width: 14rem;
   height: 5rem;
   color: #2f45ff;
 }
@@ -161,6 +161,72 @@ body {
 }
 .restart:hover {
   filter: brightness(120%);
+}
+
+.game-instructions-btn {
+  width: 12rem;
+  height: 3rem;
+  font-size: 1rem;
+  position: absolute;
+  background-color: #74480f;
+  color: white;
+  top: 1rem;
+  right: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+}
+.game-instructions-btn:hover {
+  filter: brightness(120%);
+}
+
+div.score {
+  height: 10rem;
+  padding-inline: 1rem;
+  font-size: 7rem;
+  background-color: green;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 5rem;
+  border-radius: 0rem 1rem 1rem 0rem;
+}
+
+ul {
+  box-shadow: inset #74480f 3px 3px 12px 1px, inset #d1d1d1 -2px -2px 12px 0;
+  width: 30%;
+  height: fit-content;
+
+  padding-inline: 3rem;
+  padding-block: 2.5rem;
+  border-radius: 1.2rem;
+  background-color: #74480f;
+  margin-left: 18%;
+  margin-top: 2rem;
+}
+ul li {
+  font-size: 1.5rem;
+  color: white;
+  list-style-type: circle;
+}
+
+.close-instr-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-family: sans-serif;
+  background: transparent;
+}
+
+.close-instr-btn:hover {
+  border: none;
+  outline: none;
 }
 /* small phones responsiveness */
 @media (max-width: 480px) {
@@ -224,6 +290,22 @@ body {
   .start {
     width: 90vw;
     height: 30vh;
+  }
+
+  .game-instructions-btn {
+    width: 10rem;
+    font-size: 1rem;
+  }
+
+  ul {
+    width: 90%;
+    margin-right: 10rem;
+  }
+
+  div.score {
+    width: 90%;
+    font-size: 3rem;
+    font-weight: 600;
   }
 }
 /* tablets */
@@ -293,13 +375,33 @@ body {
     height: 30vh;
   }
   .start-btn {
-    width: 15rem;
+    width: 18rem;
     height: 6rem;
     font-size: 2.2rem;
   }
   .start-btn:hover {
-    width: 17rem;
+    width: 20rem;
     height: 7rem;
     color: #2f45ff;
+  }
+
+  .game-instructions-btn {
+    width: 12rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  ul {
+    width: 90%;
+  }
+
+  ul li {
+    font-size: 2rem;
+  }
+
+  div.score {
+    width: 90%;
+    font-size: 5rem;
+    font-weight: 600;
   }
 }

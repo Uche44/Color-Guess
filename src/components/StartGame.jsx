@@ -1,12 +1,45 @@
+import { useState } from "react";
+
 const StartGame = ({ setHasNotStarted }) => {
-  const startGame = () => {
-    setHasNotStarted(false);
-  };
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const gameInstructions = [
+    "Click on the start button to begin the game",
+    "Once the game starts, a color is randomly selected",
+    "You are to guess the selected color by clicking on the color palettes",
+    "After each coice you make, another color is selected. You are allowed a maximum of ten guesses",
+    "May the best man win. Goodluck!!",
+  ];
+
   return (
     <div className="start">
       <button
+        onClick={() => setShowInstructions(true)}
+        className="game-instructions-btn"
+      >
+        HOW TO PLAY
+      </button>
+      {showInstructions && (
+        <div className="overlay">
+          <button
+            onClick={() => setShowInstructions(false)}
+            className="close-instr-btn"
+          >
+            X
+          </button>
+
+          {/* <div className="instructions"> */}
+          <ul className="instruction">
+            {gameInstructions.map((i, index) => (
+              <li key={index}>{i}</li>
+            ))}
+          </ul>
+          {/* </div> */}
+        </div>
+      )}
+      <button
         className="start-btn"
-        onClick={startGame}
+        onClick={() => setHasNotStarted(false)}
         data-testid="newGameButton"
       >
         NEW GAME
@@ -17,17 +50,3 @@ const StartGame = ({ setHasNotStarted }) => {
 
 export default StartGame;
 
-// end component
-export const EndGame = () => {
-  return (
-    <div className="restart">
-      <button
-        className="restart-btn"
-        // onClick={startGame}
-        data-testid="newGameButton"
-      >
-        PLAY AGAIN
-      </button>
-    </div>
-  );
-};

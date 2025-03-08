@@ -1,5 +1,21 @@
-import { useState, useEffect } from "react";
+// import gameSound from '../assets/game.mp3';
+// import { Howl } from 'howler';
+import BackgroundMusic from "./BackgroundMusic";
+import { useState, useEffect, useRef } from "react";
 import StartGame from "./StartGame";
+
+// audio
+// export const AudioPlayer = () => {
+//   return (
+//     <audio controls>
+//       <source
+//         src="/assets/game.mp3"
+//         type="audio/mpeg"
+//       />
+//       Your browser does not support the audio element.
+//     </audio>
+//   );
+// };
 
 const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   const colors = ["red", "green", "orange", "pink", "brown", "blue"];
@@ -13,7 +29,10 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [totalGuesses, setTotalGuesses] = useState(0);
   const [correctGuesses, setCorrectGuesses] = useState(0);
-  // const [gameOver, setGameOver] = useState(false);
+
+  const soundRef = useRef(new Audio("public/pick.mp3"));
+  // soundRef.current.duration = 1000;
+
   // to select color randomly
   useEffect(() => {
     setIsRevealed(false);
@@ -32,6 +51,9 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
     }
     setIsRevealed(true);
     setTotalGuesses((prev) => prev + 1);
+
+    soundRef.current.play();
+
     // new random color for next
 
     setTimeout(() => {
@@ -56,6 +78,7 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
     setMessage("");
     setHasNotStarted((prev) => !prev);
   };
+  // music
 
   return (
     <>
@@ -115,6 +138,8 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
       </div>
       {gameOver && (
         <div className="overlay">
+          <div className="score">SCORE: {correctGuesses * 10}</div>
+
           <button
             onClick={resetGame}
             className="restart"
@@ -130,8 +155,16 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
 const ColorGuessGame = () => {
   const [hasNotStarted, setHasNotStarted] = useState(true);
   const [gameOver, setGameOver] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   return (
     <>
+      {isPlaying && (
+        <BackgroundMusic
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+      )}
+
       {hasNotStarted ? (
         <StartGame setHasNotStarted={setHasNotStarted} />
       ) : (
