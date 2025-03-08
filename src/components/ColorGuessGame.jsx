@@ -31,7 +31,7 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   const [correctGuesses, setCorrectGuesses] = useState(0);
 
   const soundRef = useRef(new Audio("public/pick.mp3"));
-  // soundRef.current.duration = 1000;
+
 
   // to select color randomly
   useEffect(() => {
