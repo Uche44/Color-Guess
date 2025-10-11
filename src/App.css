@@ -108,6 +108,7 @@ body {
   transition: all 2s ease-in;
   font-size: 1.5rem;
   font-weight: 900;
+  cursor: pointer;
 }
 .start-btn:hover {
   width: 14rem;

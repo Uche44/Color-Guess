@@ -1,15 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gameInstructions } from "../constants/gameInstructions";
 
 const StartGame = ({ setHasNotStarted }) => {
   const [showInstructions, setShowInstructions] = useState(false);
-
-  const gameInstructions = [
-    "Click on the start button to begin the game",
-    "Once the game starts, a color is randomly selected",
-    "You are to guess the selected color by clicking on the color palettes",
-    "After each coice you make, another color is selected. You are allowed a maximum of ten guesses",
-    "May the best man win. Goodluck!!",
-  ];
+  // const [userProfile, setUserProfile] = useState({
+  //   image: "",
+  //   username: "",
+  // });
 
   const audioRef = useRef(null);
 
@@ -25,6 +22,16 @@ const StartGame = ({ setHasNotStarted }) => {
     }
     setHasNotStarted(false);
   };
+
+  const loadApp = async () => {
+    // await sdk.actions.ready();
+    const user = await sdk.context.user;
+    console.log(user);
+  };
+
+  useEffect(() => {
+    loadApp();
+  }, []);
 
   return (
     <div className="start">
@@ -43,13 +50,11 @@ const StartGame = ({ setHasNotStarted }) => {
             X
           </button>
 
-         
           <ul className="instruction">
             {gameInstructions.map((i, index) => (
               <li key={index}>{i}</li>
             ))}
           </ul>
-       
         </div>
       )}
       <button
