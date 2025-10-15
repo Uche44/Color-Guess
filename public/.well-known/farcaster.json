@@ -1,11 +1,17 @@
 {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjgzMTgwNSwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGVkMjM0MTI1MWRENjgwQ0JBNUNFNkFCMkQyNjM0MkQ0ZDRCQ2UyMGYifQ",
+    "payload": "eyJkb21haW4iOiJkcnVncy13YWx0LXNlcnZlLWRpc3RyaWJ1dGVkLnRyeWNsb3VkZmxhcmUuY29tIn0",
+    "signature": "wbPjdazd3DfL9mgXsOss+xNGCl2gdfBKShqsKLqOmm4D4Q9Q8aCCwpyX1V/Ym/JVNAcHVa6Un5n1yZO3TzOdDxw="
+  },
+
   "version": "1",
-  "imageUrl": "https://www.pinterest.com/pin/4594445788420233728/",
+  "imageUrl": "https://res.cloudinary.com/dcw1m1rak/image/upload/v1760535729/color_djxa7v.jpg",
   "button": {
-    "title": "🚩 Play Color Guess",
+    "title": "Play Color Guess",
     "action": {
       "type": "launch_miniapp",
-      "url": "https://sie-sweet-terrorist-ratios.trycloudflare.com",
+      "url": "https://drugs-walt-serve-distributed.trycloudflare.com",
       "name": "Yoink!",
       "splashImageUrl": "https://yoink.party/logo.png",
       "splashBackgroundColor": "#000"
