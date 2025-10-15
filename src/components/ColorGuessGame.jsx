@@ -1,6 +1,6 @@
-
 import { useState, useEffect, useRef } from "react";
 import StartGame from "./StartGame";
+import ComposeCast from "./composeCast";
 
 const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   const colors = ["red", "green", "orange", "pink", "brown", "blue"];
@@ -64,6 +64,8 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
   };
   // music
 
+  const score = correctGuesses * 10;
+
   return (
     <>
       <aside className="color-palette">
@@ -122,7 +124,7 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
       </div>
       {gameOver && (
         <div className="overlay">
-          <div className="score">SCORE: {correctGuesses * 10}</div>
+          <div className="score">SCORE: {score}</div>
 
           <button
             onClick={resetGame}
@@ -130,6 +132,8 @@ const ColorSet = ({ setHasNotStarted, gameOver, setGameOver }) => {
           >
             Play Again
           </button>
+
+          <ComposeCast correctGuesses={correctGuesses}/>
         </div>
       )}
     </>

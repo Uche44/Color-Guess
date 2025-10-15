@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import "./App.css";
 import sdk from "@farcaster/miniapp-sdk";
 import ColorGuessGame from "./components/ColorGuessGame";
-
+import { UserProvider } from "./userContext";
 const App = () => {
+  
   const loadApp = async () => {
     await sdk.actions.ready();
   };
@@ -14,7 +15,9 @@ const App = () => {
 
   return (
     <div>
-      <ColorGuessGame />
+      <UserProvider>
+        <ColorGuessGame />
+      </UserProvider>
     </div>
   );
 };
