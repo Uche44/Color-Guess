@@ -15,7 +15,7 @@ const ComposeCast = ({ correctGuesses }) => {
 
     sdk.actions.composeCast({
       text,
-      embeds: ["https://notices-occurring-anywhere-candles.trycloudflare.com"],
+      embeds: ["https://color-guessing-game-jade.vercel.app/"],
     });
 
     setCast("");
