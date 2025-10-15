@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "imageUrl": "https://www.pinterest.com/pin/4594445788420233728/",
+  "button": {
+    "title": "🚩 Play Color Guess",
+    "action": {
+      "type": "launch_miniapp",
+      "url": "https://sie-sweet-terrorist-ratios.trycloudflare.com",
+      "name": "Yoink!",
+      "splashImageUrl": "https://yoink.party/logo.png",
+      "splashBackgroundColor": "#000"
+    }
+  }
+}

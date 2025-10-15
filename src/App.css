@@ -90,9 +90,33 @@ body {
   left: 60%;
 }
 
+.profile {
+  margin: 0 auto;
+  padding: 10px;
+  height: 4rem;
+  width: fit-content;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #89580a;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.prof-img {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+
+.prof-name {
+  color: white;
+}
+
 .start {
   width: 500px;
-  height: 40vh;
+  height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,19 +126,14 @@ body {
 }
 .start-btn {
   background-color: #442604;
-  width: 13rem;
-  height: 3.5rem;
+  width: 10rem;
+  height: 3rem;
   border: none;
-  transition: all 2s ease-in;
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 700;
   cursor: pointer;
 }
-.start-btn:hover {
-  width: 14rem;
-  height: 5rem;
-  color: #2f45ff;
-}
+
 .start-btn:active {
   border: none;
   transform: translate(1rem, 1rem);
@@ -150,11 +169,13 @@ body {
 }
 
 .restart {
-  position: relative;
+  position: absolute;
+  top: 15px;
+  right: 24px;
   background-color: #74480f;
   color: white;
-  padding: 15px 30px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -185,9 +206,9 @@ body {
 }
 
 div.score {
-  height: 10rem;
+  height: 5rem;
   padding-inline: 1rem;
-  font-size: 7rem;
+  font-size: 2rem;
   background-color: green;
   color: black;
   display: flex;
@@ -195,7 +216,6 @@ div.score {
   justify-content: center;
   position: fixed;
   top: 5rem;
-  border-radius: 0rem 1rem 1rem 0rem;
 }
 
 ul {
@@ -405,4 +425,46 @@ ul li {
     font-size: 5rem;
     font-weight: 600;
   }
+}
+
+.add,
+.share {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: rgb(32, 28, 28);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.share {
+  background-color: white;
+  color: black;
+  margin-left: 10px;
+}
+
+/* .action-btn:hover{
+  filter: brightness(90%);
+} */
+
+.textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background-color: #89580a;
+  color: white;
+  padding: 10px;
+  margin-top: 3rem;
+  height: 8rem;
+  width: 100%;
+}
+
+.prof-image {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
