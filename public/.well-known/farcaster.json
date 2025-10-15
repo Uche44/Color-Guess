@@ -7,14 +7,11 @@
 
   "version": "1",
   "imageUrl": "https://res.cloudinary.com/dcw1m1rak/image/upload/v1760535729/color_djxa7v.jpg",
-  "button": {
-    "title": "Play Color Guess",
-    "action": {
-      "type": "launch_miniapp",
-      "url": "https://color-guessing-game-jade.vercel.app/",
-      "name": "Yoink!",
-      "splashImageUrl": "https://yoink.party/logo.png",
-      "splashBackgroundColor": "#000"
-    }
-  }
+  "name": "Silicon Valley character Quiz!",
+  "subTitle": "Are you smart enough to beat the guess tide!",
+  "description": "Take the Silicon Valley character quiz to discover which character from the show you resemble the most.",
+  "homeUrl": "https://color-guessing-game-jade.vercel.app/",
+  "iconUrl": "https://res.cloudinary.com/drcwv987u/image/upload/v1748696525/sv_frame_splash_oookyt.jpg",
+ 
+  "tags": ["game", "entertainment", "fun"]
 }
