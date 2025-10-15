@@ -1,11 +1,19 @@
 {
-  "version": "1",
-  "imageUrl": "https://res.cloudinary.com/dcw1m1rak/image/upload/v1760535729/color_djxa7v.jpg",
-  "name": "Silicon Valley character Quiz!",
-  "subTitle": "Are you smart enough to beat the guess tide!",
-  "description": "Take the Silicon Valley character quiz to discover which character from the show you resemble the most.",
-  "homeUrl": "https://color-guessing-game-jade.vercel.app/",
-  "iconUrl": "https://res.cloudinary.com/drcwv987u/image/upload/v1748696525/sv_frame_splash_oookyt.jpg",
+  "miniapp": {
+    "accountAssociation": {
+      "header": "eyJmaWQiOjgzMTgwNSwidHlwZSI6ImF1dGgiLCJrZXkiOiIweGVkMjM0MTI1MWRENjgwQ0JBNUNFNkFCMkQyNjM0MkQ0ZDRCQ2UyMGYifQ",
+      "payload": "eyJkb21haW4iOiJjb2xvci1ndWVzc2luZy1nYW1lLWphZGUudmVyY2VsLmFwcCJ9",
+      "signature": "LFbhzv9sqXcDeRvxhe4CDsuaD+9gJHnNnB6q3YXTu+9s7AtzoNFQOQEkmla9cLSpB3De8yeRss7bMuLuur/cLRw="
+    },
 
-  "tags": ["game", "entertainment", "fun"]
+    "version": "1",
+    "imageUrl": "https://res.cloudinary.com/dcw1m1rak/image/upload/v1760535729/color_djxa7v.jpg",
+    "name": "Silicon Valley character Quiz!",
+    "subTitle": "Are you smart enough to beat the guess tide!",
+    "description": "Take the Silicon Valley character quiz to discover which character from the show you resemble the most.",
+    "homeUrl": "https://color-guessing-game-jade.vercel.app/",
+    "iconUrl": "https://res.cloudinary.com/drcwv987u/image/upload/v1748696525/sv_frame_splash_oookyt.jpg",
+
+    "tags": ["game", "entertainment", "fun"]
+  }
 }
